@@ -1,0 +1,19 @@
+
+<h1>List of all Authors </h1>
+
+{% for authors in author %}
+	<a href = "{% url 'author-detail' authors.id %}">{{authors}}</a> </br>
+{% endfor %}
+
+
+<form action="{% url 'authors' %}" method="post">
+	{% csrf_token %}
+	<label for="a">Name </label>
+	<input id="a" type="text" name="a">
+	<input type="submit" name="Click">
+</form>
+
+{{object_list}} </br>
+{{author_list}} </br>
+{{my_updated}} </br>
+{{error}}

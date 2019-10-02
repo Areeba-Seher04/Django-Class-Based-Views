@@ -1,0 +1,9 @@
+My template view </br>
+Request : {{request}} </br>
+{{my_context_object}}
+<form action="{% url 'my-template-view' %}" method="post">
+	{% csrf_token %}
+	<label for="a">Name </label>
+	<input id="a" type="text" name="a">
+	<input type="submit" name="Click">
+</form>
