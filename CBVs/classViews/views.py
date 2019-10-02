@@ -64,7 +64,7 @@ class AuthorList(ListView):
 
 class AuthorDetail(DetailView):
 	''' URL
-			**define a url dispatcher in urls.py , it will save pk or slug in  kwargs, kwargs = {'our dispatcherr':2} (pk or slug defined in library)
+			**define a path in urls.py , it will save pk or slug in  kwargs, kwargs = {'pk or sluf from url':2} (pk or slug defined in library)
 	QUERYSET:
 			**returns a QUERYSET: either define a model , queryset or override get_queryset() or define a queryset in url (AuthorDetail.as_view(queryset=Author.objects.all())) (best: define a model only) 
 			**then QUERYSET is filtered by pk stored in kwargs
@@ -103,7 +103,7 @@ class MyTemplateView(TemplateView):  #methods :setup,dispatch,http_method_not_al
 	#extra_context = 
 	#override get_context_data
 	def get_context_data(self,**kwargs):
-		context = super(MyTemplateView,self).get_context_data(**kwargs) #initially context dict is only containing {'view',self} self is the info of class obj and id
+		context = super(MyTemplateView,self).get_context_data(**kwargs) #initially context dict is only containing {'view',self} self containing the info of class obj and id
 		new_context_objects = {'my_context_object':"I am a template of My Template View inherited from TemplateView" , 'request':self.request}
 		context.update(new_context_objects)
 		return context
