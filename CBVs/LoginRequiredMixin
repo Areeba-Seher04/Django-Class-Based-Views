@@ -1,0 +1,22 @@
+*******************LOGINREQUIREDMIXIN***************************
+
+1st dispatch method is called from LoginRequiredMixin class
+
+if user is not authenticated then it calls handle_no_permission() method which redirects the user to login page using 
+function redirect_to_login(self.request.get_full_path(), self.get_login_url(), self.get_redirect_field_name())
+	**self.request.get_full_path() gives current page url path
+	**self.get_login_url()         gives login_url path
+	**self.get_redirect_field_name() gives 'next'
+		so redirected url is like "login_path/?next=/current_page_path"
+
+get_login_url(): 
+		login_url = None (by default) either specify login_url or
+		specify LOGIN_URL in settings.py
+
+
+raise_exception = False (By default)
+	if raise_exception = True then handle_no_permission() method  raise
+  PermissionDenied message(get message from get_permission_denied_message() method) and 403 forbidden page will be shown.
+
+
+	
